@@ -57,15 +57,15 @@ In the results below we use the name 'page'
 php artisan scaffy:scaffold page
 ```
 
-Use in stub file and file name | Explanation | Result 
+Variable | Explanation | Result 
 ------------ | ------------- | -------------
 `&name&` | Entered name | page
 `&class_name&` | Classname of entered 'name' | Page
 `&snake_name&` | Snakecase of entered 'name' | page
 `&controller_path&` | Default controller path (can be changed in config) | app/Http/Controllers
 `&controller_ns&` | Default controller namespace | App\Http\Controllers
-`&controller_path&` | Default controller path (can be changed in config) | app/Http/Controllers
-`&controller_ns&` | Default controller namespace | App\Http\Controllers
+`&request_path&` | Default request path (can be changed in config) | app/Http/Requests
+`&request_ns&` | Default request namespace | App\Http\Requests
 `&model_path&` | Default model path (can be changed in config) | app/
 `&model_ns&` | default model path | App
 `&view_path` | laravel path to view | /resources/views
