@@ -1,7 +1,7 @@
 {
     "name": "itsrd/scaffy",
     "type": "library",
-    "description": ":package_description",
+    "description": "Making your life easier by scaffolding your Laravel application",
     "keywords": [
         "ItsRD",
         "Scaffy"
@@ -10,9 +10,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Rick van der Burg",
+            "email": "rick@pixcero.nl",
+            "homepage": "https://pixcero.nl",
             "role": "Developer"
         }
     ],
