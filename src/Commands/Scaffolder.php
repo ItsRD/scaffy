@@ -2,7 +2,7 @@
 
 namespace ItsRD\Scaffy\Commands;
 
-use App\Scaffy\Generator;
+use ItsRD\Scaffy\Generator;
 use Illuminate\Console\Command;
 
 class Scaffolder extends Command

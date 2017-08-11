@@ -9,6 +9,10 @@ Never write a CRUD
 
 
 ## Installation
-
 **Publish config**
-> php artisan vendor:publish --provider="ItsRD\Scaffy\ScaffyServiceProvider"
+
+`php artisan vendor:publish --provider="ItsRD\Scaffy\ScaffyServiceProvider"`
+
+**Install Scaffy**
+
+`php artisan scaffy:install`
