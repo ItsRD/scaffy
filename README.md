@@ -43,5 +43,34 @@ php artisan scaffy:scaffold {name} {--template}
 - Template (optional)(default=default): You can create multiple templates in the config (see 'custom templates').
 
 ## Custom Templates
+Scaffy has already included a default template out of the box with some default settings. You can also set your own default template in the config file.
+
+Templates are made to scaffold specific items on a website (e.g. admin). 
+
+## Variables
+You can use these variables in any stub file or filename, 
+these variables will compile to the results listed below. 
+You can also create params yourself in the scaffy config (templates > **template name** > params) 
+
+In the results below we use the name 'page' 
+```
+php artisan scaffy:scaffold page
+```
+
+Use in stub file and file name | Explanation | Result 
+------------ | ------------- | -------------
+`&name&` | Entered name | page
+`&class_name&` | Classname of entered 'name' | Page
+`&snake_name&` | Snakecase of entered 'name' | page
+`&controller_path&` | Default controller path (can be changed in config) | app/Http/Controllers
+`&controller_ns&` | Default controller namespace | App\Http\Controllers
+`&controller_path&` | Default controller path (can be changed in config) | app/Http/Controllers
+`&controller_ns&` | Default controller namespace | App\Http\Controllers
+`&model_path&` | Default model path (can be changed in config) | app/
+`&model_ns&` | default model path | App
+`&view_path` | laravel path to view | /resources/views
+`&plural_name&` | Makes plural of 'name' | pages
+
+Content in the first column | Content in the second column
 
 ## License

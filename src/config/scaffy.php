@@ -9,6 +9,8 @@ return [
    */
     'scaffy_install'            => app_path('Scaffy'),
 
+    'template'      => 'default',
+
     /*
    |--------------------------------------------------------------------------
    | Templates
@@ -18,6 +20,7 @@ return [
    | e.g. when you have to scaffold any admin pages and something else
    */
     'templates' => [
+
         /*
        |--------------------------------------------------------------------------
        | Default template
