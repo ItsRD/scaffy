@@ -9,3 +9,6 @@ Never write a CRUD
 
 
 ## Installation
+
+**Publish config**
+> php artisan vendor:publish --provider="ItsRD\Scaffy\ScaffyServiceProvider"
