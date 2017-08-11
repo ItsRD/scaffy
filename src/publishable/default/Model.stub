@@ -1,0 +1,11 @@
+<?php
+namespace &model_ns&;
+
+use Illuminate\Database\Eloquent\Model;
+
+class &class_name& extends Model
+{
+    protected $table = '&plural_name&'; // plural
+
+    protected $fillable = [];
+}

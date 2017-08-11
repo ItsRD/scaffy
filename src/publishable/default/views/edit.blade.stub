@@ -1,0 +1,21 @@
+@extends('layouts.default')
+
+@section('content')
+    <h1>Edit $&name&->title</h1>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    &name&
+                </div>
+                <div class="panel-body">
+                    <form action="{{ url('/') }}" method="post">
+                        {!! csrf_field() !!}
+                        {!! method_field('patch') !!}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

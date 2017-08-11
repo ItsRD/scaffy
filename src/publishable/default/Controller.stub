@@ -1,0 +1,93 @@
+<?php
+
+namespace &Controller_ns&;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use &model_ns&\&class_name&;
+
+class &class_name&Controller extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $&plural_name& = &class_name&::all();
+        return view('&view_prefix&.&plural_name&.index', compact('&plural_name&'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('&view_prefix&.&plural_name&.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        &class_name&::create($request->all());
+
+        return redirect()->route('&route_prefix&.&plural_name&.index')->with('Success', 'Saved');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  &class_name& $&name&
+     * @return \Illuminate\Http\Response
+     */
+    public function show(&class_name& $&name&)
+    {
+        return view('&view_prefix&.&plural_name&.show', compact('&name&'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  &class_name& $&name&
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(&class_name& $&name&)
+    {
+        return view('&view_prefix&.&plural_name&.edit', compact('&name&'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  &class_name& $&name&
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, &class_name& $&name&)
+    {
+        $&name&->update($request->all());
+
+        return redirect()->route('&route_prefix&.&plural_name&.index')->with('Success', 'Updated');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  &class_name& $&name&
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(&class_name& $&name&)
+    {
+        $&name&->delete();
+
+        return redirect()->route('&route_prefix&.&plural_name&.index')->with('Success', 'Deleted');
+    }
+}
