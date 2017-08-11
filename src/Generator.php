@@ -83,6 +83,9 @@ class Generator
      */
     public function execute(string $name, string $template) : void
     {
+        if($template === "default") {
+            $template = config('scaffy.template');
+        }
         $this->setName($name);
         $this->_setTemplate($template);
         $this->_getSettings();

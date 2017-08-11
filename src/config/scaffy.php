@@ -9,6 +9,13 @@ return [
    */
     'scaffy_install'            => app_path('Scaffy'),
 
+    /*
+   |--------------------------------------------------------------------------
+   | Default template
+   |--------------------------------------------------------------------------
+   |
+   | This is your default template
+   */
     'template'      => 'default',
 
     /*

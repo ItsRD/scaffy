@@ -42,7 +42,7 @@ php artisan scaffy:scaffold {name} {--template}
 - Name: Name of CRUD/Resource
 - Template (optional)(default=default): You can create multiple templates in the config (see 'custom templates').
 
-## Custom Templates
+## Custom Templates (in progress)
 Scaffy has already included a default template out of the box with some default settings. You can also set your own default template in the config file.
 
 Templates are made to scaffold specific items on a website (e.g. admin). 
@@ -71,6 +71,5 @@ Variable | Explanation | Result
 `&view_path` | laravel path to view | /resources/views
 `&plural_name&` | Makes plural of 'name' | pages
 
-Content in the first column | Content in the second column
-
 ## License
+The MIT License (MIT). Please see [License File](https://github.com/ItsRD/scaffy/blob/master/LICENSE.md) for more information.
