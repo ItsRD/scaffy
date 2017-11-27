@@ -16,7 +16,7 @@ trait GetSetters {
      * @param string $name
      * @return void
      */
-    public function setName(string $name) : void {
+    public function setName(string $name) {
         $this->_name = $name;
         $this->_addCompileData('name', $name);
     }
@@ -25,7 +25,7 @@ trait GetSetters {
      * Get name
      * @return string
      */
-    public function getName() : string {
+    public function getName()  {
         return $this->_name;
     }
 
@@ -35,7 +35,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setFiles() : void {
+    private function _setFiles() {
         $custom_files = $this->_settings['custom_files'];
         if(!empty($custom_files))
         {
@@ -52,11 +52,11 @@ trait GetSetters {
      * @param string $template
      * @return void
      */
-    private function _setTemplate(string $template) : void {
+    private function _setTemplate(string $template) {
         $this->_template = $template;
     }
 
-    private function _getTemplate() : string {
+    private function _getTemplate()  {
         return $this->_template;
     }
 
@@ -67,7 +67,7 @@ trait GetSetters {
      * @param string $name
      * @return void
      */
-    private function _setClassName(string $name) : void {
+    private function _setClassName(string $name) {
         $this->_addCompileData('class_name', $this->uppercase_first($this->camelcase($name)));
     }
 
@@ -78,7 +78,7 @@ trait GetSetters {
      * @param string $name
      * @return void
      */
-    private function _setSnakeCaseName(string $name) : void {
+    private function _setSnakeCaseName(string $name) {
         $this->_addCompileData('snake_name', snake_case($name));
     }
 
@@ -88,7 +88,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setParams() : void {
+    private function _setParams() {
         foreach($this->_settings['params'] as $key=>$value) {
             $this->_addCompileData($key, $value);
         }
@@ -100,7 +100,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setPluralName() : void {
+    private function _setPluralName() {
         $this->_addCompileData('plural_name', str_plural($this->getName()));
     }
     /**
@@ -108,7 +108,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setViewPath() : void {
+    private function _setViewPath() {
         $this->_addCompileData('view_path', str_replace(base_path(), '', $this->_settings['view_path']));
     }
     /**
@@ -116,7 +116,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setControllerPath() : void {
+    private function _setControllerPath() {
         $this->_addCompileData('controller_path', str_replace(base_path(), '', $this->_settings['controller_path']));
     }
 
@@ -125,7 +125,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setControllerNamespace() : void {
+    private function _setControllerNamespace() {
         $this->_addCompileData('controller_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['controller_path']), 1)));
     }
 
@@ -134,7 +134,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setModelPath() : void {
+    private function _setModelPath() {
         $this->_addCompileData('model_path', str_replace(base_path(), '', $this->_settings['model_path']));
     }
 
@@ -143,7 +143,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setModelNamespace() : void {
+    private function _setModelNamespace() {
         $this->_addCompileData('model_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['model_path']), 1)));
     }
 
@@ -153,7 +153,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setRequestPath() : void {
+    private function _setRequestPath() {
         $this->_addCompileData('request_path', str_replace(base_path(), '', $this->_settings['request_path']));
     }
 
@@ -163,7 +163,7 @@ trait GetSetters {
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _setRequestNamespace() : void {
+    private function _setRequestNamespace() {
         $this->_addCompileData('request_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['request_path']), 1)));
     }
 
@@ -171,7 +171,7 @@ trait GetSetters {
      * Get all errors
      * @return array
      */
-    public function getErrors() : array
+    public function getErrors()
     {
         return $this->_errors;
     }
@@ -180,7 +180,7 @@ trait GetSetters {
      * Get messages
      * @return array
      */
-    public function getMessages() : array
+    public function getMessages()
     {
         return $this->_message;
     }
@@ -189,7 +189,7 @@ trait GetSetters {
      * Get all files used for scaffolding by template
      * @return array
      */
-    public function getFiles() : array {
+    public function getFiles()  {
         return $this->_files;
     }
 }

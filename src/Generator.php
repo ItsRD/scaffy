@@ -49,7 +49,7 @@ class Generator
      * Check wether scaffy is installed or not
      * @return bool
      */
-    public function checkIfInstalled() : bool {
+    public function checkIfInstalled()  {
         return file_exists(config('scaffy.scaffy_install')) === true;
     }
 
@@ -58,7 +58,7 @@ class Generator
      * Data used in stub files to compile
      * @return void
      */
-    private function _compileData() : void
+    private function _compileData()
     {
         $name = $this->_name;
 
@@ -81,7 +81,7 @@ class Generator
      * @param string $template
      * @return void
      */
-    public function execute(string $name, string $template) : void
+    public function execute(string $name, string $template)
     {
         if($template === "default") {
             $template = config('scaffy.template');
@@ -125,7 +125,7 @@ class Generator
      * @author Rick van der Burg <rick@pixcero.nl>
      * @return void
      */
-    private function _getSettings() : void
+    private function _getSettings()
     {
         $template_settings = config('scaffy.templates.'. $this->_template);
         if(isset($template_settings)) {
@@ -142,7 +142,7 @@ class Generator
      * @param $file
      * @return string
      */
-    public function _compile($file) : string
+    public function _compile($file)
     {
         return $this->_compiler->compile($file, $this->_compile_data);
     }
@@ -154,7 +154,7 @@ class Generator
      * @param string $destination
      * @return void
      */
-    private function _generatePath(string $destination) : void
+    private function _generatePath(string $destination)
     {
         $array_of_paths = collect(explode('/', $destination));
         $already_checked_path = '';
@@ -176,7 +176,7 @@ class Generator
      * @param string $destination
      * @return void
      */
-    private function _publish(string $file, string $destination) : void
+    private function _publish(string $file, string $destination)
     {
         if (!file_exists(base_path($destination))) {
             $this->_generatePath($destination);
@@ -191,7 +191,7 @@ class Generator
      * Check if generators has any errors
      * @return bool
      */
-    public function hasErrors() : bool {
+    public function hasErrors() {
         return count($this->_errors) > 0;
     }
 
@@ -203,7 +203,7 @@ class Generator
      * @param string $type
      * @return string
      */
-    private function _getStubFile(string $file_name, string $type = null) : string
+    private function _getStubFile(string $file_name, string $type = null)
     {
         return file_get_contents(config('scaffy.scaffy_install') . '/' . $this->_template . '/' . $type . (is_null($type) ? '' : $type . '/') . $file_name);
     }
@@ -215,7 +215,7 @@ class Generator
      * @param $value
      * @return void
      */
-    private function _addCompileData(string $key, $value) : void {
+    private function _addCompileData(string $key, $value)  {
         $this->_compile_data[$key] = $value;
     }
 

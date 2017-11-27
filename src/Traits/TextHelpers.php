@@ -9,7 +9,7 @@ trait TextHelpers {
      * @param string $value
      * @return string
      */
-    public function camelcase(string $value) : string {
+    public function camelcase(string $value) {
         return camel_case($value);
     }
 
@@ -18,7 +18,7 @@ trait TextHelpers {
      * @param string $value
      * @return string
      */
-    public function uppercase_first(string $value) : string {
+    public function uppercase_first(string $value) {
         return ucfirst($value);
     }
 }
