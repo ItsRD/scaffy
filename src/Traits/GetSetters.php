@@ -60,6 +60,32 @@ trait GetSetters {
     }
 
     /**
+     * Set a custom template path so people can re-use files
+     *
+     * @author Rick van der Burg <rick@click.nl>
+     * @return void
+     */
+    private function _setTemplatePath()
+    {
+        if(isset($this->_settings['template_path'])) {
+            $this->_template_path = $this->_settings['template_path'];
+        } else {
+            $this->_template_path = $this->_getTemplate();
+        }
+    }
+
+    /**
+     * Get template path
+     *
+     * @author Rick van der Burg <rick@click.nl>
+     * @return string
+     */
+    private function _getTemplatePath()
+    {
+        return $this->_template_path;
+    }
+
+    /**
      * Sets the classname camelcase
      *
      * @author Rick van der Burg <rick@pixcero.nl>

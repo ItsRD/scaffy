@@ -25,7 +25,8 @@ class Generator
 
     # data
     private $_name,
-        $_template;
+        $_template,
+        $_template_path;
 
     private $_compile_data = [],
         $_settings = [];
@@ -89,6 +90,7 @@ class Generator
         $this->setName($name);
         $this->_setTemplate($template);
         $this->_getSettings();
+        $this->_setTemplatePath();
         $this->_setFiles();
         $this->_setParams();
 
@@ -102,7 +104,7 @@ class Generator
                 {
                     $from = $this->getFiles()[$file][0];
                     $to = $this->getFiles()[$file][1];
-                    if(file_exists(config('scaffy.scaffy_install') .'/'. $this->_getTemplate() .'/'. $from))
+                    if(file_exists(config('scaffy.scaffy_install') .'/'. $this->_getTemplatePath() .'/'. $from))
                     {
                         $compiled_file_name = $this->_compile($to);
                         $compile_file = $this->_compile($this->_getStubFile($from));
@@ -205,7 +207,7 @@ class Generator
      */
     private function _getStubFile(string $file_name, string $type = null)
     {
-        return file_get_contents(config('scaffy.scaffy_install') . '/' . $this->_template . '/' . $type . (is_null($type) ? '' : $type . '/') . $file_name);
+        return file_get_contents(config('scaffy.scaffy_install') . '/' . $this->_getTemplatePath() . '/' . $type . (is_null($type) ? '' : $type . '/') . $file_name);
     }
 
     /**
