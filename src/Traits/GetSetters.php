@@ -36,10 +36,9 @@ trait GetSetters {
      * @return void
      */
     private function _setFiles() {
-        $custom_files = $this->_settings['custom_files'];
-        if(!empty($custom_files))
+        if(isset($this->_settings['custom_files']))
         {
-            foreach($custom_files as $name=>$file) {
+            foreach($this->_settings['custom_files'] as $name=>$file) {
                 $this->_files[$name] = $file;
             }
         }
@@ -89,8 +88,11 @@ trait GetSetters {
      * @return void
      */
     private function _setParams() {
-        foreach($this->_settings['params'] as $key=>$value) {
-            $this->_addCompileData($key, $value);
+        if(isset($this->_settings['params']))
+        {
+            foreach($this->_settings['params'] as $key=>$value) {
+                $this->_addCompileData($key, $value);
+            }
         }
     }
 
@@ -109,7 +111,10 @@ trait GetSetters {
      * @return void
      */
     private function _setViewPath() {
-        $this->_addCompileData('view_path', str_replace(base_path(), '', $this->_settings['view_path']));
+        if(isset($this->_settings['view_path']))
+        {
+            $this->_addCompileData('view_path', str_replace(base_path(), '', $this->_settings['view_path']));
+        }
     }
     /**
      * Set controller path
@@ -117,7 +122,10 @@ trait GetSetters {
      * @return void
      */
     private function _setControllerPath() {
-        $this->_addCompileData('controller_path', str_replace(base_path(), '', $this->_settings['controller_path']));
+        if(isset($this->_settings['controller_path']))
+        {
+            $this->_addCompileData('controller_path', str_replace(base_path(), '', $this->_settings['controller_path']));
+        }
     }
 
     /**
@@ -126,7 +134,10 @@ trait GetSetters {
      * @return void
      */
     private function _setControllerNamespace() {
-        $this->_addCompileData('controller_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['controller_path']), 1)));
+        if(isset($this->_compile_data['controller_path']))
+        {
+            $this->_addCompileData('controller_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['controller_path']), 1)));
+        }
     }
 
     /**
@@ -135,7 +146,10 @@ trait GetSetters {
      * @return void
      */
     private function _setModelPath() {
-        $this->_addCompileData('model_path', str_replace(base_path(), '', $this->_settings['model_path']));
+        if(isset($this->_settings['model_path']))
+        {
+            $this->_addCompileData('model_path', str_replace(base_path(), '', $this->_settings['model_path']));
+        }
     }
 
     /**
@@ -144,7 +158,10 @@ trait GetSetters {
      * @return void
      */
     private function _setModelNamespace() {
-        $this->_addCompileData('model_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['model_path']), 1)));
+        if(isset($this->_compile_data['model_path']))
+        {
+            $this->_addCompileData('model_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['model_path']), 1)));
+        }
     }
 
     /**
@@ -154,7 +171,10 @@ trait GetSetters {
      * @return void
      */
     private function _setRequestPath() {
-        $this->_addCompileData('request_path', str_replace(base_path(), '', $this->_settings['request_path']));
+        if(isset($this->_settings['request_path']))
+        {
+            $this->_addCompileData('request_path', str_replace(base_path(), '', $this->_settings['request_path']));
+        }
     }
 
     /**
@@ -164,7 +184,10 @@ trait GetSetters {
      * @return void
      */
     private function _setRequestNamespace() {
-        $this->_addCompileData('request_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['request_path']), 1)));
+        if(isset($this->_compile_data['request_path']))
+        {
+            $this->_addCompileData('request_ns', $this->uppercase_first(substr(str_replace('/', '\\', $this->_compile_data['request_path']), 1)));
+        }
     }
 
     /**
