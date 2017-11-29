@@ -4,8 +4,8 @@
 Never write a CRUD
 
 ## Requirements
-- Laravel 5.4+
-- PHP 7.1+
+- Laravel 5.5+
+- PHP 7.0+
 
 
 ## Installation
