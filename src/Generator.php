@@ -13,11 +13,11 @@ class Generator
 
     # Files
     private $_files = [
-        'index' => ['views/index.blade.stub', '&view_path&/&plural_name&/index.blade.php'],
-        'create' => ['views/create.blade.stub', '&view_path&/&plural_name&/create.blade.php'],
-        'edit' => ['views/edit.blade.stub', '&view_path&/&plural_name&/edit.blade.php'],
-        'show' => ['views/show.blade.stub', '&view_path&/&plural_name&/show.blade.php'],
-        'detail' => ['views/detail.blade.stub', '&view_path&/&plural_name&/detail.blade.php'],
+        'index' => ['views/index.blade.stub', '&view_path&/&snake_name&/index.blade.php'],
+        'create' => ['views/create.blade.stub', '&view_path&/&snake_name&/create.blade.php'],
+        'edit' => ['views/edit.blade.stub', '&view_path&/&snake_name&/edit.blade.php'],
+        'show' => ['views/show.blade.stub', '&view_path&/&snake_name&/show.blade.php'],
+        'detail' => ['views/detail.blade.stub', '&view_path&/&snake_name&/detail.blade.php'],
         'controller' => ['Controller.stub', '&controller_path&/&class_name&Controller.php'],
         'resource_controller' => ['ResourceController.stub', '&controller_path&/&class_name&Controller.php'],
         'model' => ['Model.stub', '&model_path&/&class_name&.php']
