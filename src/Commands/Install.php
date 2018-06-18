@@ -2,7 +2,6 @@
 
 namespace ItsRD\Scaffy\Commands;
 
-use App\Scaffy\Generator;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
@@ -24,7 +23,6 @@ class Install extends Command
 
     /**
      * Create a new command instance.
-     *
      */
     public function __construct()
     {
@@ -38,9 +36,9 @@ class Install extends Command
      */
     public function handle()
     {
-        if(!file_exists(array_first(config('scaffy.scaffy_install')))) {
-            File::copyDirectory(realpath(__DIR__ .'/../publishable'), array_first(config('scaffy.scaffy_install')));
-            $this->info('Scaffy folder installed in '. array_first(config('scaffy.scaffy_install')));
+        if (! file_exists(array_first(config('scaffy.scaffy_install')))) {
+            File::copyDirectory(realpath(__DIR__.'/../publishable'), array_first(config('scaffy.scaffy_install')));
+            $this->info('Scaffy folder installed in '.array_first(config('scaffy.scaffy_install')));
         } else {
             $this->error('De installatie van de scaffolder folder bestaat al.');
         }

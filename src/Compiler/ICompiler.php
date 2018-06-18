@@ -3,9 +3,10 @@
 namespace ItsRD\Scaffy\Compiler;
 
 /**
- * Interface for Compilers
+ * Interface for Compilers.
  * @author Rick van der Burg <rick@click.nl>
  */
-interface ICompiler {
+interface ICompiler
+{
     public function compile($template, $data);
 }
