@@ -54,16 +54,16 @@ You can use these variables in any stub file or filename,
 these variables will compile to the results listed below. 
 You can also create params yourself in the scaffy config (templates > **template name** > params) 
 
-In the results below we use the name 'page' 
+In the results below we use the name 'social-media' 
 ```
-php artisan scaffy:scaffold page
+php artisan scaffy:scaffold social-media
 ```
 
 Variable | Explanation | Result 
 ------------ | ------------- | -------------
 `&name&` | Entered name | page
-`&class_name&` | Classname of entered 'name' | Page
-`&snake_name&` | Snakecase of entered 'name' | page
+`&class_name&` | Classname of entered 'name' | SocialMedia
+`&snake_name&` | Snakecase of entered 'name' | page_media
 `&controller_path&` | Default controller path (can be changed in config) | app/Http/Controllers
 `&controller_ns&` | Default controller namespace | App\Http\Controllers
 `&request_path&` | Default request path (can be changed in config) | app/Http/Requests
@@ -71,7 +71,7 @@ Variable | Explanation | Result
 `&model_path&` | Default model path (can be changed in config) | app/
 `&model_ns&` | default model path | App
 `&view_path` | laravel path to view | /resources/views
-`&plural_name&` | Makes plural of 'name' | pages
+`&plural_name&` | Makes plural of 'name' | social-media
 `&slugged_name&` | Makes a slug of 'name' | social-media
 
 ## License
