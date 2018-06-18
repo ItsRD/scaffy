@@ -38,9 +38,9 @@ class Install extends Command
      */
     public function handle()
     {
-        if(!file_exists(config('scaffy.scaffy_install'))) {
-            File::copyDirectory(realpath(__DIR__ .'/../publishable'), config('scaffy.scaffy_install'));
-            $this->info('Scaffy folder installed in '. config('scaffy.scaffy_install'));
+        if(!file_exists(array_first(config('scaffy.scaffy_install')))) {
+            File::copyDirectory(realpath(__DIR__ .'/../publishable'), array_first(config('scaffy.scaffy_install')));
+            $this->info('Scaffy folder installed in '. array_first(config('scaffy.scaffy_install')));
         } else {
             $this->error('De installatie van de scaffolder folder bestaat al.');
         }
