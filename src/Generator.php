@@ -13,11 +13,11 @@ class Generator
 
     # Files
     private $_files = [
-        'index' => ['views/index.blade.stub', '&view_path&/&snake_name&/index.blade.php'],
-        'create' => ['views/create.blade.stub', '&view_path&/&snake_name&/create.blade.php'],
-        'edit' => ['views/edit.blade.stub', '&view_path&/&snake_name&/edit.blade.php'],
-        'show' => ['views/show.blade.stub', '&view_path&/&snake_name&/show.blade.php'],
-        'detail' => ['views/detail.blade.stub', '&view_path&/&snake_name&/detail.blade.php'],
+        'index' => ['views/index.blade.stub', '&view_path&/&slugged_name&/index.blade.php'],
+        'create' => ['views/create.blade.stub', '&view_path&/&slugged_name&/create.blade.php'],
+        'edit' => ['views/edit.blade.stub', '&view_path&/&slugged_name&/edit.blade.php'],
+        'show' => ['views/show.blade.stub', '&view_path&/&slugged_name&/show.blade.php'],
+        'detail' => ['views/detail.blade.stub', '&view_path&/&slugged_name&/detail.blade.php'],
         'controller' => ['Controller.stub', '&controller_path&/&class_name&Controller.php'],
         'resource_controller' => ['ResourceController.stub', '&controller_path&/&class_name&Controller.php'],
         'model' => ['Model.stub', '&model_path&/&class_name&.php']
@@ -74,6 +74,7 @@ class Generator
         $this->_setPluralName();
         $this->_setRequestPath();
         $this->_setRequestNamespace();
+        $this->_setSluggedName();
     }
 
     /**
@@ -88,6 +89,7 @@ class Generator
         if($template === "default") {
             $template = config('scaffy.template');
         }
+
         $this->setName($name);
         $this->_setTemplate($template);
         $this->_getSettings();
@@ -95,6 +97,7 @@ class Generator
         $this->_setFiles();
         $this->_setParams();
 
+        
         $this->_compileData();
 
         if(empty($this->getErrors()))
