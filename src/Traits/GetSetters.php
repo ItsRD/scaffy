@@ -131,6 +131,19 @@ trait GetSetters {
     private function _setPluralName() {
         $this->_addCompileData('plural_name', str_plural($this->getName()));
     }
+
+    /**
+     * Set the hyphon name (e.g. social-media)
+     * 
+     * @author Rick van der Burg <rick@pixcero.nl>
+     *
+     * @return void
+     */
+    private function _setSluggedName()
+    {
+        $this->_addCompileData('slugged_name', str_slug($this->getName()));
+    }
+
     /**
      * Set view path
      * @author Rick van der Burg <rick@pixcero.nl>
