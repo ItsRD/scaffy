@@ -1,4 +1,5 @@
 <?php
+
 return [
     /*
    |--------------------------------------------------------------------------
@@ -58,9 +59,9 @@ return [
            */
             'params'    => [
                 'view_prefix'           => 'admin',
-                'route_prefix'          => 'admin'
-            ]
-        ]
-    ]
+                'route_prefix'          => 'admin',
+            ],
+        ],
+    ],
 
 ];

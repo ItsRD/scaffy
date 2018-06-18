@@ -1,24 +1,28 @@
 <?php
+
 namespace ItsRD\Scaffy\Traits;
 
-trait TextHelpers {
+trait TextHelpers
+{
     /**
-     * Generates a camelcase string of string
+     * Generates a camelcase string of string.
      *
      * @author Rick van der Burg <rick@pixcero.nl>
      * @param string $value
      * @return string
      */
-    public function camelcase(string $value) {
+    public function camelcase(string $value)
+    {
         return camel_case($value);
     }
 
     /**
-     * Adds uppercase to first character
+     * Adds uppercase to first character.
      * @param string $value
      * @return string
      */
-    public function uppercase_first(string $value) {
+    public function uppercase_first(string $value)
+    {
         return ucfirst($value);
     }
 }

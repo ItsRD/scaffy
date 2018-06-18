@@ -2,13 +2,12 @@
 
 namespace ItsRD\Scaffy;
 
-use Illuminate\Support\ServiceProvider;
 use ItsRD\Scaffy\Commands\Install;
 use ItsRD\Scaffy\Commands\Scaffolder;
+use Illuminate\Support\ServiceProvider;
 
 class ScaffyServiceProvider extends ServiceProvider
 {
-
     /**
      * Perform post-registration booting of services.
      *
@@ -18,7 +17,7 @@ class ScaffyServiceProvider extends ServiceProvider
     {
         // Publish scaffy config
         $this->publishes([
-            __DIR__ .'/config/scaffy.php'       => config_path('scaffy.php'),
+            __DIR__.'/config/scaffy.php'       => config_path('scaffy.php'),
         ]);
 
         // Commands
@@ -26,7 +25,6 @@ class ScaffyServiceProvider extends ServiceProvider
             Scaffolder::class,
             Install::class,
         ]);
-
     }
 
     /**
