@@ -25,18 +25,19 @@ class Generator
 
     # data
     private $_name,
-        $_template,
-        $_template_path;
+            $_template,
+            $_template_path;
 
     private $_compile_data = [],
-        $_settings = [];
+            $_settings = [];
 
     # Compiler
     private $_compiler;
 
     # Messages
     private $_errors = [],
-        $_message = [];
+            $_message = [],
+            $_path_exists;
 
     /**
      * Generator constructor
@@ -51,7 +52,7 @@ class Generator
      * @return bool
      */
     public function checkIfInstalled()  {
-        return file_exists(config('scaffy.scaffy_install')) === true;
+        return file_exists(array_first(config('scaffy.scaffy_install'))) === true;
     }
 
 
@@ -104,12 +105,12 @@ class Generator
                 {
                     $from = $this->getFiles()[$file][0];
                     $to = $this->getFiles()[$file][1];
-                    if(file_exists(config('scaffy.scaffy_install') .'/'. $this->_getTemplatePath() .'/'. $from))
-                    {
-                        $compiled_file_name = $this->_compile($to);
-                        $compile_file = $this->_compile($this->_getStubFile($from));
-                        $this->_publish($compile_file, $compiled_file_name);
-                    } else {
+
+                    foreach(config('scaffy.scaffy_install') as $path) {
+                        $this->_generateFiles($path, $from, $to);
+                    }
+
+                    if($this->_path_exists !== true) {
                         $this->_errors[] = "File '{$from}' does not exists, please create this file to scaffold.";
                         return;
                     }
@@ -118,6 +119,27 @@ class Generator
                     return;
                 }
             }
+        }
+    }
+
+    /**
+     * Generate all files
+     *
+     * @author Rick van der Burg <rick@pixcero.nl>
+     * @param string $path
+     * @param string $from
+     * @param string $to
+     * @return void
+     */
+    private function _generateFiles(string $path, string $from, string $to)
+    {
+        if(file_exists($path .'/'. $this->_getTemplatePath() .'/'. $from)) {
+            $compiled_file_name = $this->_compile($to);
+            $compile_file = $this->_compile($this->_getStubFile($path, $from));
+            $this->_publish($compile_file, $compiled_file_name);
+            $this->_path_exists = true;
+        } elseif(!$this->_path_exists) {
+            $this->_path_exists[$from] = $from;
         }
     }
 
@@ -201,13 +223,14 @@ class Generator
      * Get the content of the stub file and return it
      *
      * @author Rick van der Burg <rick@pixcero.nl>
+     * @param string $destination_path
      * @param string $file_name
      * @param string $type
      * @return string
      */
-    private function _getStubFile(string $file_name, string $type = null)
+    private function _getStubFile(string $destination_path, string $file_name, string $type = null)
     {
-        return file_get_contents(config('scaffy.scaffy_install') . '/' . $this->_getTemplatePath() . '/' . $type . (is_null($type) ? '' : $type . '/') . $file_name);
+        return file_get_contents($destination_path . '/' . $this->_getTemplatePath() . '/' . $type . (is_null($type) ? '' : $type . '/') . $file_name);
     }
 
     /**
