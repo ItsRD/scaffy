@@ -72,6 +72,7 @@ Variable | Explanation | Result
 `&model_ns&` | default model path | App
 `&view_path` | laravel path to view | /resources/views
 `&plural_name&` | Makes plural of 'name' | pages
+`&slugged_name&` | Makes a slug of 'name' | social-media
 
 ## License
 The MIT License (MIT). Please see [License File](https://github.com/ItsRD/scaffy/blob/master/LICENSE.md) for more information.
