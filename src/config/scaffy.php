@@ -7,7 +7,9 @@ return [
    |
    | This value is the path where scaffy will install it's folder
    */
-    'scaffy_install'            => app_path('Scaffy'),
+    'scaffy_install'            => [
+        app_path('Scaffy'),
+    ],
 
     /*
    |--------------------------------------------------------------------------
