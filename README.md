@@ -1,3 +1,5 @@
+[![StyleCI](https://github.styleci.io/repos/99964521/shield?branch=master)](https://github.styleci.io/repos/99964521)
+
 > This package is currently in development, any recommendations or feature requests are appreciated
 
 # Scaffy - Scaffold your Laravel application
