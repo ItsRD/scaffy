@@ -109,7 +109,7 @@ trait GetSetters
      */
     private function _setSnakeCaseName(string $name)
     {
-        $this->_addCompileData('snake_name', snake_case($name));
+        $this->_addCompileData('snake_name', str_replace('-', '_', snake_case($name)));
     }
 
     /**
